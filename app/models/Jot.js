@@ -8,6 +8,18 @@ export class Jot {
     this.createdDate = new Date(data.createdDate)
   }
 
+  get jotList(){
+    return `
+    <div class="text-light d-flex justify-content-between">
+      <span>${this.name}</span>
+      <span>${this.createdDate}</span>
+      <span>
+        <button onclick="app.JotController.openJot('${this.id}')" class="btn btn-outline-light" title="open Jot"><i class="mdi mdi-folder-open"></i></button>
+      </span>
+    </div>
+    `
+  }
+
   get ActiveNoteTemplate(){
 
   }
