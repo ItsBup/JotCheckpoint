@@ -1,27 +1,14 @@
 import { AppState } from "../AppState.js"
 import { examplesService } from "../services/ExampleService.js"
 
-function _logExamples() {
-  console.clear()
-
-  AppState.examples.forEach(exampleInstance => {
-    console.log(exampleInstance.message)
-  })
-
+function _drawNotes() {
+  console.log('AHHHH')
 }
 
-export class ExamplesController {
+export class JotController {
   constructor() {
-    console.log('The ExamplesController has loaded')
-    AppState.on('examples', _logExamples)
-  }
-
-  addMessage(message) {
-    if (!message) {
-      throw new Error('You must provide a message')
-    }
-
-    examplesService.addMessage(message)
+    console.log('JotController has loaded')
+    AppState.on('jots', _drawNotes)
   }
 
 }
