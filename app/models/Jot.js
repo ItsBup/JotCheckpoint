@@ -22,6 +22,7 @@ export class Jot {
   }
 
   updateUpdatedDate() {
+    //FIXME move logic to service layer, currently this runs every time we draw the active
     this.updatedDate = new Date();
   }
 

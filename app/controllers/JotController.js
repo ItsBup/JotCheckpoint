@@ -16,6 +16,8 @@ function _drawActiveNote(){
   document.getElementById('active-jot').innerHTML = content
 }
 
+//FIXME - Lets add another draw in to draw onto the list of notes, a number of how many notes we have, it can draw whenever drawNotes runs
+
 export class JotController {
   constructor() {
     _drawNotes()
