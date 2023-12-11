@@ -10,9 +10,12 @@ class ObservableAppState extends EventEmitter {
     new Jot({
       name: 'ExampleJot',
       body: 'This is an example Jot! Happy Jot-ing!',
+      color: 'pink',
       createdDate: 'Date'
     })
   ]
+  /** @type{Jot} */
+  activeJot = null
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())

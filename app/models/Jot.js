@@ -5,6 +5,7 @@ export class Jot {
     this.id = generateId
     this.name = data.name
     this.body = data.body
+    this.color = data.color
     this.createdDate = new Date(data.createdDate)
   }
 
@@ -21,7 +22,12 @@ export class Jot {
   }
 
   get ActiveNoteTemplate(){
-
+    return `
+    <div class="col-12">
+      <h1 class="text-uppercase fw-bold">${this.name} ${this.createdDate}</h1>
+      <p>${this.body}</p>
+    </div>
+    `
   }
 
 }
