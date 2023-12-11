@@ -10,11 +10,17 @@ export class Jot {
     this.createdDate = new Date(data.createdDate)
   }
 
+  formattedDate() {
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    return this.createdDate.toLocaleDateString(undefined, options);
+  }
+
   get jotList(){
+    const formattedDate = this.formattedDate();
     return `
     <div class="text-dark d-flex justify-content-between">
       <span>${this.name}</span>
-      <span>${this.createdDate}</span>
+      <span>${formattedDate}</span>
       <span>
         <button onclick="app.JotController.openJot('${this.id}')" class="btn btn-outline-dark" title="open Jot"><i class="mdi mdi-folder-open"></i></button>
       </span>
@@ -23,9 +29,10 @@ export class Jot {
   }
 
   get ActiveNoteTemplate(){
+    const formattedDate = this.formattedDate();
     return `
     <div class="col-12">
-      <h1 class="text-uppercase fw-bold">${this.name} ${this.createdDate}</h1>
+      <h1 class="text-uppercase fw-bold">${this.name} ${formattedDate}</h1>
       <p>${this.body}</p>
     </div>
     `

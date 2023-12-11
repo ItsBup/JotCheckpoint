@@ -11,7 +11,7 @@ class ObservableAppState extends EventEmitter {
       name: 'ExampleJot',
       body: 'This is an example Jot! Happy Jot-ing!',
       color: 'pink',
-      createdDate: 'Date'
+      createdDate: '02/13/2000'
     })
   ]
   /** @type{Jot} */
