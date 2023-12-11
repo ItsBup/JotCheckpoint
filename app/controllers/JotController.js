@@ -30,4 +30,8 @@ export class JotController {
     jotService.createJot(formData)
     form.reset
   }
+
+  openJot(jotId){
+    jotService.openJot(jotId)
+  }
 }

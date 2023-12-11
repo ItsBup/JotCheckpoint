@@ -7,6 +7,10 @@ class JotService {
     const newJot = new Jot(formData)
     AppState.jots.push(newJot)
   }
+  openJot(jotId){
+    const newActiveJot = AppState.jots.find(jot => jot.id == jotId)
+    AppState.activeJot = newActiveJot
+  }
 }
 
 export const jotService = new JotService()
