@@ -16,13 +16,18 @@ function _drawActiveNote(){
   document.getElementById('active-jot').innerHTML = content
 }
 
-//FIXME - Lets add another draw in to draw onto the list of notes, a number of how many notes we have, it can draw whenever drawNotes runs
+function _drawTotalJots() {
+  const totalJot = AppState.jots.length
+  let content = 'Total Jots: ' + totalJot
+  document.getElementById('total-jots').innerHTML = content
+}
 
 export class JotController {
   constructor() {
     _drawNotes()
     console.log('JotController has loaded')
     AppState.on('activeJot', _drawActiveNote)
+    AppState.on('jots', _drawTotalJots)
     AppState.on('jots', _drawNotes)
     jotService.loadJot()
   }
