@@ -12,6 +12,14 @@ class JotService {
     const newActiveJot = AppState.jots.find(jot => jot.id == jotId)
     AppState.activeJot = newActiveJot
   }
+  deleteJot(jotId){
+    const indexToRemove = AppState.jots.findIndex(jot => jot.id == jotId)
+    if(indexToRemove > -1){
+      AppState.jots.splice(indexToRemove,1)
+      saveState('jots', AppState.jots)
+      this.saveJot()
+    }
+  }
   saveJot(newBody){
     const activeJotBody = AppState.activeJot
     activeJotBody.body = newBody

@@ -24,6 +24,7 @@ export class Jot {
         <span>${formattedDate}</span>
         <span>
           <button onclick="app.JotController.openJot('${this.id}')" class="btn btn-outline-dark" title="open Jot"><i class="mdi mdi-folder-open"></i></button>
+          <button onclick="app.JotController.deleteJot('${this.id}')" class="btn btn-outline-danger" title="delete Jot"><i class="mdi mdi-trash-can-outline"></i></button>
         </span>
       </div>
     `

@@ -1,6 +1,7 @@
 import { AppState } from "../AppState.js"
 import { jotService } from "../services/JotService.js";
 import { getFormData } from "../utils/FormHandler.js";
+import { Pop } from "../utils/Pop.js";
 
 function _drawNotes() {
   const jots = AppState.jots
@@ -35,6 +36,13 @@ export class JotController {
   openJot(jotId){
     console.log(jotId)
     jotService.openJot(jotId)
+  }
+
+  async deleteJot(jotId){
+    let isConfirmed = await Pop.confirm("WARNING?!?", 'ONCE YOU TAKE THIS PATH THERE IS NO RETURN', 'Yeah trash it', 'error')
+    if( isConfirmed){
+    jotService.deleteJot(jotId)
+    }
   }
 
   saveThisJot(){
