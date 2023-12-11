@@ -3,7 +3,7 @@ import { Jot } from "../models/Jot.js";
 
 
 class JotService {
-  createJot(){
+  createJot(formData){
     const newJot = new Jot(formData)
     AppState.jots.push(newJot)
   }

@@ -38,23 +38,31 @@
 
   <!-- SECTION -->
   <main class="bg-image">
-
-    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasJot" role="button" aria-controls="offcanvasJot">
+    <section>
+      <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasJot" role="button" aria-controls="offcanvasJot">
       Get Your JOT On
-    </a>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasJot" aria-labelledby="offcanvasJotLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasJotLabel">Jot :D</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
+      </a>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasJot" aria-labelledby="offcanvasJotLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasJotLabel">Jot :D</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
 <!-- REVIEW add a lovely id for JotCards here -->
-        <div id="jot-list"> 
+          <div id="jot-list"> 
           
+          </div>
+          <form onsubmit="app.JotController.createJot()">
+            <h3>Create New Jot</h3>
+            <div class="input-group">
+              <input type="text" name="name" id="jot-name" class="form-control" placeholder="Name Your Jot!">
+              <input type="date" name="createdDate" id="jot-created-date" class="form-control">
+              <button type="submit" class="btn btn-success" title="Jot It!"><i class="mdi mdi-file-plus"></i></button>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
-
+    </section>
   </main>
 
   <!-- SECTION -->
