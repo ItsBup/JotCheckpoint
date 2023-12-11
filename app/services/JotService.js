@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Jot } from "../models/Jot.js";
+import { loadState, saveState } from "../utils/Store.js";
 
 
 class JotService {
@@ -10,6 +11,16 @@ class JotService {
   openJot(jotId){
     const newActiveJot = AppState.jots.find(jot => jot.id == jotId)
     AppState.activeJot = newActiveJot
+  }
+  saveJot(newBody){
+    const activeJotBody = AppState.activeJot
+    activeJotBody.body = newBody
+    AppState.emit('activeJot')
+    saveState('jots', AppState.jots)
+  }
+  loadJot(){
+    const loadingJots = loadState('jots', [Jot])
+    AppState.jots = loadingJots
   }
 }
 

@@ -21,6 +21,7 @@ export class JotController {
     console.log('JotController has loaded')
     AppState.on('activeJot', _drawActiveNote)
     AppState.on('jots', _drawNotes)
+    jotService.loadJot()
   }
 
   createJot(){
@@ -34,5 +35,11 @@ export class JotController {
   openJot(jotId){
     console.log(jotId)
     jotService.openJot(jotId)
+  }
+
+  saveThisJot(){
+    const newBody = document.getElementById('active-jot-body').value
+    console.log('saving', newBody)
+    jotService.saveJot(newBody)
   }
 }

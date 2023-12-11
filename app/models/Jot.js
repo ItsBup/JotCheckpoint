@@ -5,7 +5,7 @@ export class Jot {
   constructor(data) {
     this.id = generateId()
     this.name = data.name
-    this.body = data.body
+    this.body = data.body || ''
     this.color = data.color
     this.createdDate = new Date(Date.now())
   }
@@ -39,9 +39,9 @@ export class Jot {
           <h6>Updated at updatedDate</h6>
         </div>
         <div class="col-8">
-          <textarea rows="20" class="w-100" id="active-case-body" maxlength=2000>${this.body}</textarea>
+          <textarea rows="20" class="w-100" id="active-jot-body" maxlength=2000>${this.body}</textarea>
         </div>
-        <button onclick="app.JotController.saveJot()" class="btn btn-danger">save Jot<i class="mdi mdi-content-save"></i></button>
+        <button onclick="app.JotController.saveThisJot()" class="btn btn-danger">save Jot<i class="mdi mdi-content-save"></i></button>
       </div>
     `
   }
