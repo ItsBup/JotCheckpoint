@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { jotService } from "../services/JotService.js";
+import { getFormData } from "../utils/FormHandler.js";
 
 function _drawNotes() {
   const jots = AppState.jots

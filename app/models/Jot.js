@@ -1,4 +1,5 @@
 import { generateId } from "../utils/GenerateId.js";
+import { AppState } from "../AppState.js";
 
 export class Jot {
   constructor(data) {
@@ -11,11 +12,11 @@ export class Jot {
 
   get jotList(){
     return `
-    <div class="text-light d-flex justify-content-between">
+    <div class="text-dark d-flex justify-content-between">
       <span>${this.name}</span>
       <span>${this.createdDate}</span>
       <span>
-        <button onclick="app.JotController.openJot('${this.id}')" class="btn btn-outline-light" title="open Jot"><i class="mdi mdi-folder-open"></i></button>
+        <button onclick="app.JotController.openJot('${this.id}')" class="btn btn-outline-dark" title="open Jot"><i class="mdi mdi-folder-open"></i></button>
       </span>
     </div>
     `

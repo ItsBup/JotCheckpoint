@@ -1,6 +1,8 @@
+import { JotController } from "./controllers/JotController.js";
 
 class App {
 
+    JotController = new JotController()
 
 }
 
