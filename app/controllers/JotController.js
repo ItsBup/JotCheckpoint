@@ -32,6 +32,7 @@ export class JotController {
   }
 
   openJot(jotId){
+    console.log(jotId)
     jotService.openJot(jotId)
   }
 }
