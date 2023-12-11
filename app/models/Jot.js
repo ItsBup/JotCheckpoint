@@ -30,7 +30,7 @@ export class Jot {
     const formattedDate = this.formattedCreatedDate();
     return `
       <div class="text-dark d-flex justify-content-between">
-        <span>${this.name}<i class="mdi mdi-circle"></i></span>
+        <span>${this.name}<i style="color: ${this.color};" class="mdi mdi-circle"></i></span>
         <span>${formattedDate}</span>
         <span>
           <button onclick="app.JotController.openJot('${this.id}')" class="btn btn-outline-dark" title="open Jot"><i class="mdi mdi-folder-open"></i></button>
@@ -46,7 +46,7 @@ export class Jot {
     return `
       <div class="row bg-dark">
         <div class="col-4 text-light">
-          <h4 class="text-uppercase fw-bold">${this.name} <i class="mdi mdi-circle"></i></h4>
+          <h4 class="text-uppercase fw-bold">${this.name} <i style="color: ${this.color};" class="mdi mdi-circle"></i></h4>
           <h6>Created at ${formattedDate}</h6>
           <h6>Updated at ${formattedUpDate}</h6>
         </div>
