@@ -8,11 +8,21 @@ export class Jot {
     this.body = data.body || ''
     this.color = data.color
     this.createdDate = new Date(Date.now())
+    this.updatedDate = new Date() || ''
   }
 
   formattedCreatedDate() {
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     return this.createdDate.toLocaleDateString(undefined, options);
+  }
+
+  formattedUpdatedDate() {
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    return this.updatedDate.toLocaleDateString(undefined, options);
+  }
+
+  updateUpdatedDate() {
+    this.updatedDate = new Date();
   }
 
   get jotList(){
@@ -32,17 +42,18 @@ export class Jot {
 
   get ActiveNoteTemplate(){
     const formattedDate = this.formattedCreatedDate();
+    const formattedUpDate = this.formattedUpdatedDate();
     return `
       <div class="row bg-dark">
         <div class="col-4 text-light">
           <h4 class="text-uppercase fw-bold">${this.name} <i class="mdi mdi-circle"></i></h4>
           <h6>Created at ${formattedDate}</h6>
-          <h6>Updated at updatedDate</h6>
+          <h6>Updated at ${formattedUpDate}</h6>
         </div>
         <div class="col-8">
           <textarea rows="20" class="w-100" id="active-jot-body" maxlength=2000>${this.body}</textarea>
         </div>
-        <button onclick="app.JotController.saveThisJot()" class="btn btn-danger">save Jot<i class="mdi mdi-content-save"></i></button>
+        <button onclick="app.JotController.saveThisJot('${this.id}')" class="btn btn-danger">save Jot<i class="mdi mdi-content-save"></i></button>
       </div>
     `
   }

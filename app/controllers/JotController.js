@@ -45,7 +45,9 @@ export class JotController {
     }
   }
 
-  saveThisJot(){
+  saveThisJot(jotId){
+    const jotUpdate = AppState.jots.find(jot => jot.id == jotId)
+    jotUpdate.updateUpdatedDate()
     const newBody = document.getElementById('active-jot-body').value
     console.log('saving', newBody)
     jotService.saveJot(newBody)
